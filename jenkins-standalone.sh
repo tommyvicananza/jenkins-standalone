@@ -21,7 +21,8 @@ for plugin in ${JENKINS_PLUGINS[@]}; do
     wget -q -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin}.hpi"
 done
 
-# Start the Jenkins master
+# Start the master
+export JENKINS_HOME="$(pwd)"
 java -jar jenkins.war \
     -Djava.awt.headless=true \
     --webroot=war \
@@ -31,4 +32,3 @@ java -jar jenkins.war \
     --ajp13ListenAddress=127.0.0.1 \
     --preferredClassLoader=java.net.URLClassLoader \
     --logfile=../jenkins.log
-
