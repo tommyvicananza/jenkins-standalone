@@ -26,7 +26,7 @@ export JENKINS_HOME="$(pwd)"
 java -jar jenkins.war \
     -Djava.awt.headless=true \
     --webroot=war \
-    --httpPort=${PORT}0 \
+    --httpPort=${PORT} \
     --ajp13Port=-1 \
     --httpListenAddress=0.0.0.0 \
     --ajp13ListenAddress=127.0.0.1 \
