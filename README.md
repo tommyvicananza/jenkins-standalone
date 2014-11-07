@@ -7,7 +7,7 @@ concatenated with `&&`, so that it only proceeds if the previous command
 was successful.
 
 ```
-git clone https://gist.github.com/61ee35a61acfb4aefcc5.git jenkins-standalone
+git clone https://github.com/rji/jenkins-standalone
 cd jenkins-standalone
 ./jenkins-standalone.sh
 ```
