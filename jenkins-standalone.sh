@@ -36,8 +36,9 @@ if [[ ! -f "jenkins.war" ]]; then
 fi
 
 # Jenkins plugins
-JENKINS_PLUGINS=(credentials git git-client greenballs hipchat mesos metadata \
-    parameterized-trigger saferestart scm-api ssh-credentials token-macro)
+JENKINS_PLUGINS=(credentials email-ext git git-client greenballs hipchat mesos \
+    metadata parameterized-trigger saferestart scm-api ssh-credentials \
+    token-macro)
 
 [[ ! -d "plugins" ]] && mkdir "plugins"
 for plugin in ${JENKINS_PLUGINS[@]}; do
