@@ -46,7 +46,6 @@ for plugin in ${JENKINS_PLUGINS[@]}; do
 done
 
 # Substitute values in Jenkins' config.xml with arguments passed-in on the CLI
-echo $ZOOKEEPER_PATHS
 sed -i "s!_MAGIC_ZOOKEEPER_PATHS!${ZOOKEEPER_PATHS}!" config.xml
 
 # Start the master
