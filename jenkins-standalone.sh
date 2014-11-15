@@ -52,7 +52,7 @@ done
 
 # Jenkins config files
 sed -i "s!_MAGIC_ZOOKEEPER_PATHS!${ZOOKEEPER_PATHS}!" config.xml
-sed -i "s!_MAGIC_JENKINS_URL!http://${HOST_IP}:${PORT}!" jenkins.model.JenkinsLocationConfiguration.xml
+sed -i "s!_MAGIC_JENKINS_URL!http://${HOST}:${PORT}!" jenkins.model.JenkinsLocationConfiguration.xml
 
 # Start the master
 export JENKINS_HOME="$(pwd)"
