@@ -50,8 +50,9 @@ for plugin in ${JENKINS_PLUGINS[@]}; do
     wget -q -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin}.hpi"
 done
 
-# Substitute values in Jenkins' config.xml with arguments passed-in on the CLI
+# Jenkins config files
 sed -i "s!_MAGIC_ZOOKEEPER_PATHS!${ZOOKEEPER_PATHS}!" config.xml
+sed -i "s!_MAGIC_JENKINS_URL!http://${HOST_IP}:${PORT}!" jenkins.model.JenkinsLocationConfiguration.xml
 
 # Start the master
 export JENKINS_HOME="$(pwd)"
