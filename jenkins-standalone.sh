@@ -41,13 +41,13 @@ done
 
 # Jenkins WAR file
 if [[ ! -f "jenkins.war" ]]; then
-    wget -q "${JENKINS_WAR_MIRROR}/${JENKINS_VERSION}/jenkins.war"
+    wget "${JENKINS_WAR_MIRROR}/${JENKINS_VERSION}/jenkins.war"
 fi
 
 # Jenkins plugins
 [[ ! -d "plugins" ]] && mkdir "plugins"
 for plugin in ${JENKINS_PLUGINS[@]}; do
-    wget -q -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin}.hpi"
+    wget -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin}.hpi"
 done
 
 # Jenkins config files
