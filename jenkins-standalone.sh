@@ -19,6 +19,7 @@ JENKINS_PLUGINS=(\
     parameterized-trigger \
     saferestart \
     scm-api \
+    script-security \
     ssh-credentials \
     token-macro \
 )
