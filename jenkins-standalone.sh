@@ -5,9 +5,23 @@ JENKINS_WAR_MIRROR="http://mirrors.jenkins-ci.org/war-stable"
 JENKINS_VERSION="1.580.1"
 JENKINS_PLUGINS_MIRROR="http://updates.jenkins-ci.org"
 JENKINS_PLUGINS_BASEURL="${JENKINS_PLUGINS_MIRROR}/latest"
-JENKINS_PLUGINS=(credentials email-ext git git-client greenballs hipchat \
-    logstash mesos metadata parameterized-trigger saferestart scm-api \
-    ssh-credentials token-macro)
+JENKINS_PLUGINS=(\
+    credentials \
+    email-ext \
+    git \
+    git-client \
+    greenballs \
+    hipchat \
+    logstash \
+    mesos \
+    metadata \
+    monitoring \
+    parameterized-trigger \
+    saferestart \
+    scm-api \
+    ssh-credentials \
+    token-macro \
+)
 
 # Ensure we have an accessible wget
 command -v wget > /dev/null
