@@ -4,24 +4,26 @@ set -e
 JENKINS_WAR_MIRROR="http://mirrors.jenkins-ci.org/war-stable"
 JENKINS_VERSION="1.580.1"
 JENKINS_PLUGINS_MIRROR="http://updates.jenkins-ci.org"
-JENKINS_PLUGINS_BASEURL="${JENKINS_PLUGINS_MIRROR}/latest"
+JENKINS_PLUGINS_BASEURL="${JENKINS_PLUGINS_MIRROR}/download/plugins"
+
+# List of Jenkins plugins, in the format "${PLUGIN_NAME}/${PLUGIN_VERSION}"
 JENKINS_PLUGINS=(\
-    credentials \
-    email-ext \
-    git \
-    git-client \
-    greenballs \
-    hipchat \
-    logstash \
-    mesos \
-    metadata \
-    monitoring \
-    parameterized-trigger \
-    saferestart \
-    scm-api \
-    script-security \
-    ssh-credentials \
-    token-macro \
+    "credentials/1.18"           \
+    "email-ext/2.39"             \
+    "git/2.3.1"                  \
+    "git-client/1.12.0"          \
+    "greenballs/1.14"            \
+    "hipchat/0.1.8"              \
+    "logstash/1.0.1"             \
+    "metadata/1.1.0b"            \
+    "mesos/0.5.0"                \
+    "monitoring/1.54.0"          \
+    "parameterized-trigger/2.25" \
+    "saferestart/0.3"            \
+    "scm-api/0.2"                \
+    "script-security/1.12"       \
+    "ssh-credentials/1.10"       \
+    "token-macro/1.10"           \
 )
 
 # Ensure we have an accessible wget
@@ -62,7 +64,9 @@ fi
 # Jenkins plugins
 [[ ! -d "plugins" ]] && mkdir "plugins"
 for plugin in ${JENKINS_PLUGINS[@]}; do
-    wget -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin}.hpi"
+    IFS='/' read -a plugin_info <<< "${plugin}"
+    plugin_path="${plugin_info[0]}/${plugin_info[1]}/${plugin_info[0]}.hpi"
+    wget -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin_path}"
 done
 
 # Jenkins config files
