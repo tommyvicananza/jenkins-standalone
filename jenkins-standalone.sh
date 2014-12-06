@@ -1,10 +1,8 @@
 #!/bin/bash
 set -e
 
-JENKINS_WAR_MIRROR="http://mirrors.jenkins-ci.org/war-stable"
+# $JENKINS_VERSION should be an LTS release
 JENKINS_VERSION="1.580.1"
-JENKINS_PLUGINS_MIRROR="http://updates.jenkins-ci.org"
-JENKINS_PLUGINS_BASEURL="${JENKINS_PLUGINS_MIRROR}/download/plugins"
 
 # List of Jenkins plugins, in the format "${PLUGIN_NAME}/${PLUGIN_VERSION}"
 JENKINS_PLUGINS=(\
@@ -25,6 +23,10 @@ JENKINS_PLUGINS=(\
     "ssh-credentials/1.10"       \
     "token-macro/1.10"           \
 )
+
+JENKINS_WAR_MIRROR="http://mirrors.jenkins-ci.org/war-stable"
+JENKINS_PLUGINS_MIRROR="http://updates.jenkins-ci.org"
+JENKINS_PLUGINS_BASEURL="${JENKINS_PLUGINS_MIRROR}/download/plugins"
 
 # Ensure we have an accessible wget
 command -v wget > /dev/null
