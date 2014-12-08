@@ -60,7 +60,7 @@ done
 
 # Jenkins WAR file
 if [[ ! -f "jenkins.war" ]]; then
-    wget "${JENKINS_WAR_MIRROR}/${JENKINS_VERSION}/jenkins.war"
+    wget -nc "${JENKINS_WAR_MIRROR}/${JENKINS_VERSION}/jenkins.war"
 fi
 
 # Jenkins plugins
@@ -68,7 +68,7 @@ fi
 for plugin in ${JENKINS_PLUGINS[@]}; do
     IFS='/' read -a plugin_info <<< "${plugin}"
     plugin_path="${plugin_info[0]}/${plugin_info[1]}/${plugin_info[0]}.hpi"
-    wget -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin_path}"
+    wget -nc -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin_path}"
 done
 
 # Jenkins config files
