@@ -16,5 +16,5 @@ Example usage:
 ```
 git clone https://github.com/rji/jenkins-standalone
 cd jenkins-standalone
-./jenkins-standalone.sh -z zk://10.132.188.212:2181[, ... ]/mesos -r redis.example.com
+./jenkins-standalone.sh -z $(cat /etc/mesos/zk) -r redis.example.com
 ```
