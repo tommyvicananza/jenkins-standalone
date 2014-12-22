@@ -1,5 +1,7 @@
 # jenkins-standalone
-Everything needed to run a Jenkins master on Apache Mesos and Marathon.
+Run a Jenkins master on Apache Mesos and Marathon.
+
+<http://rogerignazio.com/blog/scaling-jenkins-mesos-marathon>.
 
 ## Usage
 `jenkins-standalone.sh` takes two arguments:
