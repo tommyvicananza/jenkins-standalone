@@ -12,6 +12,7 @@ JENKINS_PLUGINS=(\
     "git-client/1.12.0"          \
     "greenballs/1.14"            \
     "hipchat/0.1.8"              \
+    "job-dsl/1.27"               \
     "logstash/1.0.3"             \
     "metadata/1.1.0b"            \
     "mesos/0.5.0"                \
