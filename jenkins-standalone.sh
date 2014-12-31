@@ -26,8 +26,7 @@ JENKINS_PLUGINS=(\
 )
 
 JENKINS_WAR_MIRROR="http://mirrors.jenkins-ci.org/war-stable"
-JENKINS_PLUGINS_MIRROR="http://updates.jenkins-ci.org"
-JENKINS_PLUGINS_BASEURL="${JENKINS_PLUGINS_MIRROR}/download/plugins"
+JENKINS_PLUGINS_MIRROR="http://mirrors.jenkins-ci.org/plugins"
 
 # Ensure we have an accessible wget
 command -v wget > /dev/null
@@ -73,7 +72,7 @@ fi
 for plugin in ${JENKINS_PLUGINS[@]}; do
     IFS='/' read -a plugin_info <<< "${plugin}"
     plugin_path="${plugin_info[0]}/${plugin_info[1]}/${plugin_info[0]}.hpi"
-    wget -nc -P plugins "${JENKINS_PLUGINS_BASEURL}/${plugin_path}"
+    wget -nc -P plugins "${JENKINS_PLUGINS_MIRROR}/${plugin_path}"
 done
 
 # Jenkins config files
