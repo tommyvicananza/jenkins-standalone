@@ -5,5 +5,5 @@
   <port>6379</port>
   <username></username>
   <password></password>
-  <key>logstash</key>
+  <key>jenkins</key>
 </jenkins.plugins.logstash.LogstashInstallation_-Descriptor>
