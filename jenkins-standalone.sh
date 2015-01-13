@@ -6,7 +6,6 @@ JENKINS_VERSION="1.580.2"
 
 # List of Jenkins plugins, in the format "${PLUGIN_NAME}/${PLUGIN_VERSION}"
 JENKINS_PLUGINS=(\
-    "branch-api/0.2-beta-3"      \
     "credentials/1.18"           \
     "email-ext/2.39"             \
     "git/2.3.1"                  \
@@ -24,7 +23,6 @@ JENKINS_PLUGINS=(\
     "script-security/1.12"       \
     "ssh-credentials/1.10"       \
     "token-macro/1.10"           \
-    "yaml-project/0.1-beta-5"    \
 )
 
 JENKINS_WAR_MIRROR="http://mirrors.jenkins-ci.org/war-stable"
