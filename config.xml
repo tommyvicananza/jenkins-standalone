@@ -24,6 +24,9 @@
       <master>_MAGIC_ZOOKEEPER_PATHS</master>
       <description></description>
       <frameworkName>Jenkins Scheduler</frameworkName>
+      <slavesUser></slavesUser>
+      <principal>jenkins</principal>
+      <secret></secret>
       <checkpoint>false</checkpoint>
       <onDemandRegistration>false</onDemandRegistration>
       <slaveInfos>
@@ -36,6 +39,7 @@
           <remoteFSRoot>jenkins</remoteFSRoot>
           <idleTerminationMinutes>3</idleTerminationMinutes>
           <jvmArgs>-Xms16m -XX:+UseConcMarkSweepGC -Djava.net.preferIPv4Stack=true</jvmArgs>
+          <jnlpArgs></jnlpArgs>
           <labelString>mesos</labelString>
         </org.jenkinsci.plugins.mesos.MesosSlaveInfo>
       </slaveInfos>
