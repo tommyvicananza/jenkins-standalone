@@ -2,25 +2,25 @@
 set -e
 
 # $JENKINS_VERSION should be an LTS release
-JENKINS_VERSION="1.580.3"
+JENKINS_VERSION="1.596.1"
 
 # List of Jenkins plugins, in the format "${PLUGIN_NAME}/${PLUGIN_VERSION}"
 JENKINS_PLUGINS=(\
     "credentials/1.22"           \
     "email-ext/2.39"             \
-    "git/2.3.4"                  \
+    "git/2.3.5"                  \
     "git-client/1.16.1"          \
     "greenballs/1.14"            \
     "hipchat/0.1.8"              \
     "job-dsl/1.29"               \
     "logstash/1.0.3"             \
     "metadata/1.1.0b"            \
-    "mesos/0.5.0"                \
+    "mesos/0.6.0"                \
     "monitoring/1.55.0"          \
     "parameterized-trigger/2.25" \
     "saferestart/0.3"            \
     "scm-api/0.2"                \
-    "script-security/1.12"       \
+    "script-security/1.13"       \
     "ssh-credentials/1.10"       \
     "token-macro/1.10"           \
 )
