@@ -23,6 +23,7 @@ JENKINS_PLUGINS=(
     "script-security/1.13"
     "ssh-credentials/1.10"
     "token-macro/1.10"
+    "scm-sync-configuration/0.0.8"
 )
 
 JENKINS_WAR_MIRROR="http://mirrors.jenkins-ci.org/war-stable"
@@ -49,6 +50,10 @@ while [[ $# > 1 ]]; do
     case $key in
         -z|--zookeeper)
             ZOOKEEPER_PATHS="$1"
+            shift
+            ;;
+        -g|--git-repo)
+            GIT_REPO="$1"
             shift
             ;;
         -r|--redis-host)
@@ -79,6 +84,7 @@ done
 sed -i "s!_MAGIC_ZOOKEEPER_PATHS!${ZOOKEEPER_PATHS}!" config.xml
 sed -i "s!_MAGIC_REDIS_HOST!${REDIS_HOST}!" jenkins.plugins.logstash.LogstashInstallation.xml
 sed -i "s!_MAGIC_JENKINS_URL!http://${HOST}:${PORT}!" jenkins.model.JenkinsLocationConfiguration.xml
+sed -i "s!_URL_GIT!${GIT_REPO}!" jenkins.plugins.scm-sync-configuration.xml
 
 # Start the master
 export JENKINS_HOME="$(pwd)"
