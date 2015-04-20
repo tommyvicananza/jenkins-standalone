@@ -14,6 +14,9 @@
       <notifyFailure>false</notifyFailure>
       <notifyBackToNormal>false</notifyBackToNormal>
     </jenkins.plugins.hipchat.HipChatNotifier_-HipChatJobProperty>
+    <job-metadata plugin="metadata@1.1.0b">
+      <values class="linked-list"/>
+    </job-metadata>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
