@@ -81,10 +81,14 @@ for plugin in ${JENKINS_PLUGINS[@]}; do
 done
 
 # Jenkins config files
-sed -i "s!_MAGIC_ZOOKEEPER_PATHS!${ZOOKEEPER_PATHS}!" config.xml
-sed -i "s!_MAGIC_REDIS_HOST!${REDIS_HOST}!" jenkins.plugins.logstash.LogstashInstallation.xml
-sed -i "s!_MAGIC_JENKINS_URL!http://${HOST}:${PORT}!" jenkins.model.JenkinsLocationConfiguration.xml
-sed -i "s!_URL_GIT!${GIT_REPO}!" scm-sync-configuration.xml
+sed -i "s!_MAGIC_ZOOKEEPER_PATHS!${ZOOKEEPER_PATHS}!" template/config.xml
+cp template/config.xml .
+sed -i "s!_MAGIC_REDIS_HOST!${REDIS_HOST}!" template/jenkins.plugins.logstash.LogstashInstallation.xml
+cp template/jenkins.plugins.logstash.LogstashInstallation.xml .
+sed -i "s!_MAGIC_JENKINS_URL!http://${HOST}:${PORT}!" template/jenkins.model.JenkinsLocationConfiguration.xml
+cp template/jenkins.model.JenkinsLocationConfiguration.xml .
+sed -i "s!_URL_GIT!${GIT_REPO}!" template/scm-sync-configuration.xml
+cp template/scm-sync-configuration.xml .
 
 # Start the master
 export JENKINS_HOME="$(pwd)"
