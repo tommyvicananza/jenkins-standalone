@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <hudson>
-  <version/>
   <disabledAdministrativeMonitors>
     <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
     <string>jenkins.diagnostics.SecurityIsOffMonitor</string>
   </disabledAdministrativeMonitors>
+  <version></version>
   <numExecutors>0</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -18,7 +18,7 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds>
-    <org.jenkinsci.plugins.mesos.MesosCloud plugin="mesos">
+    <org.jenkinsci.plugins.mesos.MesosCloud plugin="mesos@0.6.0">
       <name>MesosCloud</name>
       <nativeLibraryPath>/usr/local/lib/libmesos.so</nativeLibraryPath>
       <master>_MAGIC_ZOOKEEPER_PATHS</master>
