@@ -23,7 +23,7 @@
       <nativeLibraryPath>/usr/local/lib/libmesos.so</nativeLibraryPath>
       <master>_MAGIC_ZOOKEEPER_PATHS</master>
       <description></description>
-      <frameworkName>Jenkins Scheduler</frameworkName>
+      <frameworkName>Jenkins Scheduler Test</frameworkName>
       <slavesUser></slavesUser>
       <principal>jenkins</principal>
       <secret></secret>
