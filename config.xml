@@ -47,7 +47,7 @@
   </clouds>
   <slaves/>
   <quietPeriod>5</quietPeriod>
-  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <scmCheckoutRetryCount>1</scmCheckoutRetryCount>
   <views>
     <hudson.model.AllView>
       <owner class="hudson" reference="../../.."/>
