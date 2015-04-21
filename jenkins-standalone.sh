@@ -81,14 +81,24 @@ for plugin in ${JENKINS_PLUGINS[@]}; do
 done
 
 # Jenkins config files
-sed -i "s!_MAGIC_ZOOKEEPER_PATHS!${ZOOKEEPER_PATHS}!" template/config.xml
-cp template/config.xml .
-sed -i "s!_MAGIC_REDIS_HOST!${REDIS_HOST}!" template/jenkins.plugins.logstash.LogstashInstallation.xml
-cp template/jenkins.plugins.logstash.LogstashInstallation.xml .
-sed -i "s!_MAGIC_JENKINS_URL!http://${HOST}:${PORT}!" template/jenkins.model.JenkinsLocationConfiguration.xml
-cp template/jenkins.model.JenkinsLocationConfiguration.xml .
-sed -i "s!_URL_GIT!${GIT_REPO}!" template/scm-sync-configuration.xml
-cp template/scm-sync-configuration.xml .
+if [[ ! -f "config.xml" ]]; then
+    sed -i "s!_MAGIC_ZOOKEEPER_PATHS!${ZOOKEEPER_PATHS}!" template/config.xml
+    cp template/config.xml .
+fi
+
+if [[ ! -f "jenkins.plugins.logstash.LogstashInstallation.xml" ]]; then
+    sed -i "s!_MAGIC_REDIS_HOST!${REDIS_HOST}!" template/jenkins.plugins.logstash.LogstashInstallation.xml
+    cp template/jenkins.plugins.logstash.LogstashInstallation.xml .
+fi
+
+if [[ ! -f "jenkins.model.JenkinsLocationConfiguration.xml" ]]; then
+    sed -i "s!_MAGIC_JENKINS_URL!http://${HOST}:${PORT}!" template/jenkins.model.JenkinsLocationConfiguration.xml
+    cp template/jenkins.model.JenkinsLocationConfiguration.xml .    
+
+if [[ ! -f "scm-sync-configuration.xml" ]]; then
+    sed -i "s!_URL_GIT!${GIT_REPO}!" template/scm-sync-configuration.xml
+    cp template/scm-sync-configuration.xml .  
+fi
 
 # Start the master
 export JENKINS_HOME="$(pwd)"
