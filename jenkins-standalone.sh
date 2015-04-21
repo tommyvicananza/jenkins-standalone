@@ -93,7 +93,8 @@ fi
 
 if [[ ! -f "jenkins.model.JenkinsLocationConfiguration.xml" ]]; then
     sed -i "s!_MAGIC_JENKINS_URL!http://${HOST}:${PORT}!" template/jenkins.model.JenkinsLocationConfiguration.xml
-    cp template/jenkins.model.JenkinsLocationConfiguration.xml .    
+    cp template/jenkins.model.JenkinsLocationConfiguration.xml . 
+fi   
 
 if [[ ! -f "scm-sync-configuration.xml" ]]; then
     sed -i "s!_URL_GIT!${GIT_REPO}!" template/scm-sync-configuration.xml
